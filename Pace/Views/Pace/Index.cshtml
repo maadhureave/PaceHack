@@ -1,0 +1,178 @@
+﻿@model Pace.Models.PaceModel
+@{
+    ViewBag.Title = "Index";
+}
+<div>
+    <table class=" table table-bordered">
+        <tr>
+            <th>
+                Time sheet details1
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                @Html.LabelFor(model => Model.Week.Sunday)
+                @Html.LabelFor(model => Model.Week.Sunday.Item1)
+            </th>
+            <th>
+                @Html.LabelFor(model => Model.Week.Monday)
+                @Html.LabelFor(model => Model.Week.Monday.Item1)
+            </th>
+            <th>
+                @Html.LabelFor(model => Model.Week.Tuesday)
+                @Html.LabelFor(model => Model.Week.Tuesday.Item1)
+            </th>
+            <th>
+                @Html.LabelFor(model => Model.Week.Wednesday)
+                @Html.LabelFor(model => Model.Week.Wednesday.Item1)
+            </th>
+            <th>
+                @Html.LabelFor(model => Model.Week.Thursday)
+                @Html.LabelFor(model => Model.Week.Thursday.Item1)
+            </th>
+            <th>
+                @Html.LabelFor(model => Model.Week.Friday)
+                @Html.LabelFor(model => Model.Week.Friday.Item1)
+            </th>
+            <th>
+                @Html.LabelFor(model => Model.Week.Saturday)
+                @Html.LabelFor(model => Model.Week.Saturday.Item1)
+            </th>
+            <th>
+                Total
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Project: CMB
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                @Html.TextBoxFor(model => Model.Week.Sunday.Item2, new { @style = "width:50px;", @class = "sun time" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => Model.Week.Monday.Item2, new { @style = "width:50px;", @class = "mon time" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => Model.Week.Tuesday.Item2, new { @style = "width:50px;", @class = "tues time" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => Model.Week.Wednesday.Item2, new { @style = "width:50px;", @class = "wed time" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => Model.Week.Thursday.Item2, new { @style = "width:50px;", @class = "thrs time" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => Model.Week.Friday.Item2, new { @style = "width:50px;", @class = "fri time" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => Model.Week.Saturday.Item2, new { @style = "width:50px;", @class = "sat time" })
+            </td>
+            <td>
+                @Html.TextBoxFor(model => Model.Total, new { @style = "width:50px;", @class = "total" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="30">
+                <input type="submit" class="btn btn-danger pull-right" value="save entries" />
+            </td>
+        </tr>
+    </table>
+</div>
+@section Scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.time').blur(function () {
+                var tot = 0;
+                $('.time').each(function () {
+                    if ($(this).val() != "" && $(this).val() != "undefined" && $(this).val() != null) {
+                        var val = parseInt($(this).val());
+                        tot = val + tot;
+                    }
+                });
+                $('.total').val(tot);
+            });
+        });
+    </script>
+}

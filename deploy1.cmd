@@ -68,6 +68,7 @@ echo 2a: Executing Unit Tests: CloudSiteTests
 %MSBUILD_PATH% "%DEPLOYMENT_SOURCE%\UnitTestProject1\UnitTestProject1.csproj" /nologo /verbosity:m /t:Build /p:Configuration=Debug
 call "tools/nunit-console.exe" "%DEPLOYMENT_SOURCE%\UnitTestProject1\bin\Debug\UnitTestProject1.dll"
 
+
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 :: Post deployment stub

@@ -30,12 +30,12 @@ namespace Pace.Controllers
         public PaceModel CalculatePace()
         {
             PaceModel objPaceModel = new PaceModel();
-
+            DateTime currDate = new DateTime(2015, 08, 26);
             DateTime eDateSwp = DateTime.Now;
-            DateTime sDateSwp = GetPreviousDate(DateTime.Now.DayOfWeek, out eDateSwp);
+            DateTime sDateSwp = GetPreviousDate(currDate.DayOfWeek, currDate, out eDateSwp);
 
             DateTime eDateVac = DateTime.Now;
-            DateTime sDateVac = GetUpcomingDate(DateTime.Now.DayOfWeek, out eDateVac);
+            DateTime sDateVac = GetUpcomingDate(currDate.DayOfWeek, currDate, out eDateVac);
             PaceData objPaceDataDAL = new PaceData();
             List<Vacation> lstVacation = _proxy.GetVacationData();
             List<Swipe> lstSwipe = objPaceDataDAL.GetSwipeData();
@@ -44,7 +44,7 @@ namespace Pace.Controllers
             if (lstVacation.Count() > 0)
             {
                 DateTime vacStart = lstVacation.Where(vac => vac.FromDate <= vac.FromDate).First().FromDate;
-                DateTime vacEnd = lstVacation.Where(vac => vac.ToDate >= vac.ToDate).First().ToDate;
+                DateTime vacEnd = lstVacation.Where(vac => vac.ToDate >= vac.ToDate).Last().ToDate;
                 vacationDates = GetVacationDates(vacStart, vacEnd);
             }
 
@@ -85,9 +85,9 @@ namespace Pace.Controllers
                     lstSwipe.Remove(sp);
                 }
             }
-            DateTime weekSt = DateTime.Now;
+            DateTime weekSt = currDate;
 
-            DateTime weekEn = GetWeekStartEnd(out weekSt);
+            DateTime weekEn = GetWeekStartEnd(currDate, out weekSt);
 
             objPaceModel.SwipeHr = new List<SwipeHours>();
             objPaceModel.VacationHr = new List<SwipeHours>();
@@ -102,6 +102,14 @@ namespace Pace.Controllers
                     objSwipeHours = new SwipeHours();
                     objSwipeHours.Date = weekDts;
                     objSwipeHours.Hours = 0;
+                }
+
+                if(weekDts.DayOfWeek == DayOfWeek.Friday)
+                {
+                    objSwipeHours = new SwipeHours();
+                    objSwipeHours.Date = weekDts;
+                    objSwipeHours.Hours = 5;
+                    objOthr.Hours = 4;
                 }
                 objPaceModel.SwipeHr.Add(objSwipeHours);
 
@@ -160,116 +168,104 @@ namespace Pace.Controllers
         }
 
 
-        public DateTime GetPreviousDate(DayOfWeek day, out DateTime eDate)
+        public DateTime GetPreviousDate(DayOfWeek day, DateTime currDate, out DateTime eDate)
         {
             DateTime retnDate = new DateTime();
-            eDate = DateTime.Now;
+            eDate = currDate.AddDays(1).AddTicks(-1);
             switch (day)
             {
                 case DayOfWeek.Sunday:
                     retnDate = DateTime.Now;
                     break;
                 case DayOfWeek.Monday:
-                    retnDate = DateTime.Now.AddDays(-1);
-                    eDate = DateTime.Now.AddDays(-1).AddTicks(-1);
+                    retnDate = currDate.AddDays(-1);
                     break;
                 case DayOfWeek.Tuesday:
-                    retnDate = DateTime.Now.AddDays(-2);
-                    eDate = DateTime.Now.AddDays(-1).AddTicks(-1);
+                    retnDate = currDate.AddDays(-2);
                     break;
                 case DayOfWeek.Wednesday:
-                    retnDate = DateTime.Now.AddDays(-3);
-                    eDate = DateTime.Now.AddDays(-1).AddTicks(-1);
+                    retnDate = currDate.AddDays(-3);
                     break;
                 case DayOfWeek.Thursday:
-                    retnDate = DateTime.Now.AddDays(-4);
-                    eDate = DateTime.Now.AddDays(-1).AddTicks(-1);
+                    retnDate = currDate.AddDays(-4);
                     break;
                 case DayOfWeek.Friday:
-                    retnDate = DateTime.Now.AddDays(-5);
-                    eDate = DateTime.Now.AddDays(-1).AddTicks(-1);
+                    retnDate = currDate.AddDays(-5);
                     break;
                 case DayOfWeek.Saturday:
-                    retnDate = DateTime.Now.AddDays(-6);
-                    eDate = DateTime.Now.AddDays(-1).AddTicks(-1);
+                    retnDate = currDate.AddDays(-6);
                     break;
             }
 
             return retnDate;
         }
 
-        public DateTime GetUpcomingDate(DayOfWeek day, out DateTime eDate)
+        public DateTime GetUpcomingDate(DayOfWeek day, DateTime currDate, out DateTime eDate)
         {
-            DateTime retnDate = new DateTime();
+            DateTime retnDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(1);
             eDate = DateTime.Now;
             switch (day)
             {
                 case DayOfWeek.Sunday:
-                    retnDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(1);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(7).AddTicks(-1);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(7).AddTicks(-1);
                     break;
                 case DayOfWeek.Monday:
-                    retnDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(1);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(6).AddTicks(-1);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(6).AddTicks(-1);
                     break;
                 case DayOfWeek.Tuesday:
-                    retnDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(1);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(5).AddTicks(-1);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(5).AddTicks(-1);
                     break;
                 case DayOfWeek.Wednesday:
-                    retnDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(1);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(4).AddTicks(-1);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(4).AddTicks(-1);
                     break;
                 case DayOfWeek.Thursday:
-                    retnDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(1);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(3).AddTicks(-1);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(3).AddTicks(-1);
                     break;
                 case DayOfWeek.Friday:
-                    retnDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(1);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(2).AddTicks(-1);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(2).AddTicks(-1);
                     break;
                 case DayOfWeek.Saturday:
-                    retnDate = DateTime.Now;
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(1).AddTicks(-1);
+                    retnDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(1).AddTicks(-1);
                     break;
             }
 
             return retnDate;
         }
 
-        public DateTime GetWeekStartEnd(out DateTime sDate)
+        public DateTime GetWeekStartEnd(DateTime currDate, out DateTime sDate)
         {
             sDate = DateTime.Now;
             DateTime eDate = DateTime.Now;
-            switch (DateTime.Now.DayOfWeek)
+            switch (currDate.DayOfWeek)
             {
                 case DayOfWeek.Sunday:
-                    sDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(7).AddTicks(-1);
+                    sDate = new DateTime(currDate.Year, currDate.Month, currDate.Day);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(7).AddTicks(-1);
                     break;
                 case DayOfWeek.Monday:
-                    sDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(-1);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(6).AddTicks(-1);
+                    sDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(-1);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(6).AddTicks(-1);
                     break;
                 case DayOfWeek.Tuesday:
-                    sDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(-2);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(5).AddTicks(-1);
+                    sDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(-2);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(5).AddTicks(-1);
                     break;
                 case DayOfWeek.Wednesday:
-                    sDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(-3);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(4).AddTicks(-1);
+                    sDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(-3);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(4).AddTicks(-1);
                     break;
                 case DayOfWeek.Thursday:
-                    sDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(-4);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(3).AddTicks(-1);
+                    sDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(-4);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(3).AddTicks(-1);
                     break;
                 case DayOfWeek.Friday:
-                    sDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(-5);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(2).AddTicks(-1);
+                    sDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(-5);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(2).AddTicks(-1);
                     break;
                 case DayOfWeek.Saturday:
-                    sDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(-6);
-                    eDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day).AddDays(1).AddTicks(-1);
+                    sDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(-6);
+                    eDate = new DateTime(currDate.Year, currDate.Month, currDate.Day).AddDays(1).AddTicks(-1);
                     break;
             }
             return eDate;

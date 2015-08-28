@@ -322,6 +322,9 @@
             </td>
         </tr>
     </table>
+    <div>
+
+    </div>
     @*<table class=" table table-bordered">
         <tr>
             <th>
@@ -400,8 +403,16 @@
                     vactot = val + vactot;
                 }
             });
+            var othtot = 0;
+            $('.othr-time').each(function () {
+                if ($(this).val() != "" && $(this).val() != "undefined" && $(this).val() != null) {
+                    var val = parseInt($(this).val());
+                    othtot = val + othtot;
+                }
+            });
             $('.total').val(tot);
             $('.vac-total').val(vactot);
+            $('.othr-total').val(othtot);
             $('.time').blur(function () {
                 var tot = 0;
                 $('.time').each(function () {
@@ -421,6 +432,16 @@
                     }
                 });
                 $('.vac-total').val(tot);
+            });
+            $('.othr-time').blur(function () {
+                var tot = 0;
+                $('.othr-time').each(function () {
+                    if ($(this).val() != "" && $(this).val() != "undefined" && $(this).val() != null) {
+                        var val = parseInt($(this).val());
+                        tot = val + tot;
+                    }
+                });
+                $('.othr-total').val(tot);
             });
         });
     </script>

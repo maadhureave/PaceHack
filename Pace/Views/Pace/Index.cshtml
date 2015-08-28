@@ -2,8 +2,22 @@
 @{
     ViewBag.Title = "Index";
 }
+<style type="text/css">
+    .navbar-inverse{
+        background-color:red;
+        border-color:darkred
+    }
+</style>
 <div>
+    <br />
     <table class=" table table-bordered">
+        <tr>
+            <td>
+                <h4>
+                    Swipe Timesheet
+                </h4>
+            </td>
+        </tr>
         <tr>
             <th>
                 Time sheet details
@@ -51,6 +65,135 @@
                 &nbsp;
             </th>
             @foreach (var item in Model.SwipeHr)
+            {
+                string date = Convert.ToString(item.Date);
+            <th>
+                @Html.DisplayFor(model => item.Date.DayOfWeek)
+            </th>
+            }
+            <th>
+                Total
+            </th>
+        </tr>
+        <tr>
+            <td>
+                Project: CMB
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            @foreach (var item in Model.SwipeHr)
+            {
+            <td>
+                @Html.TextBoxFor(model => item.Hours, new { @style = "width:50px;", @class = "sun time" })
+            </td>
+            }
+            <td>
+                @Html.TextBoxFor(model => Model.Total, new { @style = "width:50px;", @class = "total" })
+            </td>
+        </tr>
+        <tr>
+            <td colspan="30">
+                <input type="submit" class="btn btn-danger pull-right" value="save entries" />
+            </td>
+        </tr>
+    </table>
+    <hr />
+    <br />
+    <table class=" table table-bordered">
+        <tr>
+            <td>
+                <h4>
+                    Vacation Timesheet
+                </h4>
+            </td>
+        </tr>
+        <tr>
+            <th>
+                Time sheet details
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            @foreach (var item in Model.VacationHr)
             {
                 string date = Convert.ToString(item.Date);
                 <th>
@@ -107,14 +250,70 @@
             <td>
                 &nbsp;
             </td>
-            @foreach (var item in Model.SwipeHr)
+            @foreach (var item in Model.VacationHr)
             {
                 <td>
-                    @Html.TextBoxFor(model => item.Hours, new { @style = "width:50px;", @class = "sun time" })
+                    @Html.TextBoxFor(model => item.Hours, new { @style = "width:50px;", @class = "sun vac-time" })
                 </td>
             }
             <td>
-                @Html.TextBoxFor(model => Model.Total, new { @style = "width:50px;", @class = "total" })
+                @Html.TextBoxFor(model => Model.Total, new { @style = "width:50px;", @class = "vac-total" })
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Other Activities Timings
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            <td>
+                &nbsp;
+            </td>
+            @foreach (var item in Model.OtherHr)
+            {
+                <td>
+                    @Html.TextBoxFor(model => item.Hours, new { @style = "width:50px;", @class = "sun othr-time" })
+                </td>
+            }
+            <td>
+                @Html.TextBoxFor(model => Model.Total, new { @style = "width:50px;", @class = "othr-total" })
             </td>
         </tr>
         <tr>
@@ -123,6 +322,66 @@
             </td>
         </tr>
     </table>
+    @*<table class=" table table-bordered">
+        <tr>
+            <th>
+                Time sheet details
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            <th>
+                &nbsp;
+            </th>
+            @foreach (var item in Model.OtherHr)
+            {
+                string date = Convert.ToString(item.Date);
+                <th>
+                    @Html.DisplayFor(model => item.Date.DayOfWeek)
+                </th>
+            }
+            <th>
+                Total
+            </th>
+        </tr>
+       
+    </table>*@
 </div>
 @section Scripts{
     <script type="text/javascript">
@@ -134,7 +393,15 @@
                     tot = val + tot;
                 }
             });
+            var vactot = 0;
+            $('.vac-time').each(function () {
+                if ($(this).val() != "" && $(this).val() != "undefined" && $(this).val() != null) {
+                    var val = parseInt($(this).val());
+                    vactot = val + vactot;
+                }
+            });
             $('.total').val(tot);
+            $('.vac-total').val(vactot);
             $('.time').blur(function () {
                 var tot = 0;
                 $('.time').each(function () {
@@ -144,6 +411,16 @@
                     }
                 });
                 $('.total').val(tot);
+            });
+            $('.vac-time').blur(function () {
+                var tot = 0;
+                $('.vac-time').each(function () {
+                    if ($(this).val() != "" && $(this).val() != "undefined" && $(this).val() != null) {
+                        var val = parseInt($(this).val());
+                        tot = val + tot;
+                    }
+                });
+                $('.vac-total').val(tot);
             });
         });
     </script>

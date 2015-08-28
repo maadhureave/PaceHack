@@ -7,3 +7,12 @@ c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLaye
 c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
 c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\bin\Debug\ServiceLayer.dll
 c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\bin\Debug\ServiceLayer.pdb
+D:\PackHack1\PaceHack\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\PackHack1\PaceHack\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\PackHack1\PaceHack\DataAccessLayer\bin\Debug\Entities.dll
+D:\PackHack1\PaceHack\DataAccessLayer\bin\Debug\ServiceLayer.dll
+D:\PackHack1\PaceHack\DataAccessLayer\bin\Debug\Entities.pdb
+D:\PackHack1\PaceHack\DataAccessLayer\bin\Debug\ServiceLayer.pdb
+D:\PackHack1\PaceHack\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+D:\PackHack1\PaceHack\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\PackHack1\PaceHack\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

@@ -3,3 +3,8 @@ c:\Users\administrator\documents\visual studio 2015\Projects\Pace\Entities\bin\D
 c:\Users\administrator\documents\visual studio 2015\Projects\Pace\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
 c:\Users\administrator\documents\visual studio 2015\Projects\Pace\Entities\obj\Debug\Entities.dll
 c:\Users\administrator\documents\visual studio 2015\Projects\Pace\Entities\obj\Debug\Entities.pdb
+D:\PackHack1\PaceHack\Entities\bin\Debug\Entities.dll
+D:\PackHack1\PaceHack\Entities\bin\Debug\Entities.pdb
+D:\PackHack1\PaceHack\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+D:\PackHack1\PaceHack\Entities\obj\Debug\Entities.dll
+D:\PackHack1\PaceHack\Entities\obj\Debug\Entities.pdb

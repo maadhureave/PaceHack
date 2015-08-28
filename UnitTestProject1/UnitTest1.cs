@@ -33,13 +33,19 @@ namespace UnitTestProject1
             sdate = objPaceController.GetPreviousDate((DayOfWeek)weekday, out eDate);
         }
 
-        [Test]
-        public void TestGetUpcomingDate()
+        [TestCase(0)]
+        [TestCase(1)]
+        [TestCase(2)]
+        [TestCase(3)]
+        [TestCase(4)]
+        [TestCase(5)]
+        [TestCase(6)]
+        public void TestGetUpcomingDate(int weekday)
         {
             PaceController objPaceController = new PaceController(proxy);
             DateTime sdate = DateTime.Now;
             DateTime eDate = DateTime.Now;
-            sdate = objPaceController.GetUpcomingDate(DateTime.Now.DayOfWeek, out eDate);
+            sdate = objPaceController.GetUpcomingDate((DayOfWeek)weekday, out eDate);
         }
 
         [Test]

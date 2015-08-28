@@ -6,7 +6,7 @@
     <table class=" table table-bordered">
         <tr>
             <th>
-                Time sheet details1
+                Time sheet details
             </th>
             <th>
                 &nbsp;
@@ -50,34 +50,13 @@
             <th>
                 &nbsp;
             </th>
-            <th>
-                @Html.LabelFor(model => Model.Week.Sunday)
-                @Html.LabelFor(model => Model.Week.Sunday.Item1)
-            </th>
-            <th>
-                @Html.LabelFor(model => Model.Week.Monday)
-                @Html.LabelFor(model => Model.Week.Monday.Item1)
-            </th>
-            <th>
-                @Html.LabelFor(model => Model.Week.Tuesday)
-                @Html.LabelFor(model => Model.Week.Tuesday.Item1)
-            </th>
-            <th>
-                @Html.LabelFor(model => Model.Week.Wednesday)
-                @Html.LabelFor(model => Model.Week.Wednesday.Item1)
-            </th>
-            <th>
-                @Html.LabelFor(model => Model.Week.Thursday)
-                @Html.LabelFor(model => Model.Week.Thursday.Item1)
-            </th>
-            <th>
-                @Html.LabelFor(model => Model.Week.Friday)
-                @Html.LabelFor(model => Model.Week.Friday.Item1)
-            </th>
-            <th>
-                @Html.LabelFor(model => Model.Week.Saturday)
-                @Html.LabelFor(model => Model.Week.Saturday.Item1)
-            </th>
+            @foreach (var item in Model.SwipeHr)
+            {
+                string date = Convert.ToString(item.Date);
+                <th>
+                    @Html.DisplayFor(model => item.Date.DayOfWeek)
+                </th>
+            }
             <th>
                 Total
             </th>
@@ -128,27 +107,12 @@
             <td>
                 &nbsp;
             </td>
-            <td>
-                @Html.TextBoxFor(model => Model.Week.Sunday.Item2, new { @style = "width:50px;", @class = "sun time" })
-            </td>
-            <td>
-                @Html.TextBoxFor(model => Model.Week.Monday.Item2, new { @style = "width:50px;", @class = "mon time" })
-            </td>
-            <td>
-                @Html.TextBoxFor(model => Model.Week.Tuesday.Item2, new { @style = "width:50px;", @class = "tues time" })
-            </td>
-            <td>
-                @Html.TextBoxFor(model => Model.Week.Wednesday.Item2, new { @style = "width:50px;", @class = "wed time" })
-            </td>
-            <td>
-                @Html.TextBoxFor(model => Model.Week.Thursday.Item2, new { @style = "width:50px;", @class = "thrs time" })
-            </td>
-            <td>
-                @Html.TextBoxFor(model => Model.Week.Friday.Item2, new { @style = "width:50px;", @class = "fri time" })
-            </td>
-            <td>
-                @Html.TextBoxFor(model => Model.Week.Saturday.Item2, new { @style = "width:50px;", @class = "sat time" })
-            </td>
+            @foreach (var item in Model.SwipeHr)
+            {
+                <td>
+                    @Html.TextBoxFor(model => item.Hours, new { @style = "width:50px;", @class = "sun time" })
+                </td>
+            }
             <td>
                 @Html.TextBoxFor(model => Model.Total, new { @style = "width:50px;", @class = "total" })
             </td>
@@ -163,6 +127,14 @@
 @section Scripts{
     <script type="text/javascript">
         $(document).ready(function () {
+            var tot = 0;
+            $('.time').each(function () {
+                if ($(this).val() != "" && $(this).val() != "undefined" && $(this).val() != null) {
+                    var val = parseInt($(this).val());
+                    tot = val + tot;
+                }
+            });
+            $('.total').val(tot);
             $('.time').blur(function () {
                 var tot = 0;
                 $('.time').each(function () {

@@ -1,0 +1,9 @@
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\bin\Debug\Entities.dll
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\bin\Debug\Entities.pdb
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\bin\Debug\ServiceLayer.dll
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\DataAccessLayer\bin\Debug\ServiceLayer.pdb

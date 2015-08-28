@@ -1,0 +1,7 @@
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\ServiceLayer\bin\Debug\ServiceLayer.dll
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\ServiceLayer\bin\Debug\ServiceLayer.pdb
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\ServiceLayer\bin\Debug\Entities.dll
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\ServiceLayer\bin\Debug\Entities.pdb
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\ServiceLayer\obj\Debug\ServiceLayer.csprojResolveAssemblyReference.cache
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\ServiceLayer\obj\Debug\ServiceLayer.dll
+c:\Users\administrator\documents\visual studio 2015\Projects\Pace\ServiceLayer\obj\Debug\ServiceLayer.pdb

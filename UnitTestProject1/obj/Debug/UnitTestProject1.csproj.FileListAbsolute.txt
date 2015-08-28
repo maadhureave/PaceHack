@@ -5,3 +5,10 @@ D:\HackPaceReporting\UnitTestProject1\bin\Debug\nunit.framework.xml
 D:\HackPaceReporting\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
 D:\HackPaceReporting\UnitTestProject1\obj\Debug\UnitTestProject1.dll
 D:\HackPaceReporting\UnitTestProject1\obj\Debug\UnitTestProject1.pdb
+D:\PackHack1\PaceHack\UnitTestProject1\bin\Debug\UnitTestProject1.dll
+D:\PackHack1\PaceHack\UnitTestProject1\bin\Debug\UnitTestProject1.pdb
+D:\PackHack1\PaceHack\UnitTestProject1\bin\Debug\nunit.framework.dll
+D:\PackHack1\PaceHack\UnitTestProject1\bin\Debug\nunit.framework.xml
+D:\PackHack1\PaceHack\UnitTestProject1\obj\Debug\UnitTestProject1.csprojResolveAssemblyReference.cache
+D:\PackHack1\PaceHack\UnitTestProject1\obj\Debug\UnitTestProject1.dll
+D:\PackHack1\PaceHack\UnitTestProject1\obj\Debug\UnitTestProject1.pdb

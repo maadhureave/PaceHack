@@ -16,3 +16,12 @@ D:\PackHack1\PaceHack\DataAccessLayer\bin\Debug\ServiceLayer.pdb
 D:\PackHack1\PaceHack\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
 D:\PackHack1\PaceHack\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 D:\PackHack1\PaceHack\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\Demo\PaceHack\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Demo\PaceHack\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Demo\PaceHack\DataAccessLayer\bin\Debug\Entities.dll
+D:\Demo\PaceHack\DataAccessLayer\bin\Debug\ServiceLayer.dll
+D:\Demo\PaceHack\DataAccessLayer\bin\Debug\Entities.pdb
+D:\Demo\PaceHack\DataAccessLayer\bin\Debug\ServiceLayer.pdb
+D:\Demo\PaceHack\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+D:\Demo\PaceHack\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Demo\PaceHack\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

@@ -12,3 +12,10 @@ D:\PackHack1\PaceHack\ServiceLayer\bin\Debug\Entities.pdb
 D:\PackHack1\PaceHack\ServiceLayer\obj\Debug\ServiceLayer.csprojResolveAssemblyReference.cache
 D:\PackHack1\PaceHack\ServiceLayer\obj\Debug\ServiceLayer.dll
 D:\PackHack1\PaceHack\ServiceLayer\obj\Debug\ServiceLayer.pdb
+D:\Demo\PaceHack\ServiceLayer\bin\Debug\ServiceLayer.dll
+D:\Demo\PaceHack\ServiceLayer\bin\Debug\ServiceLayer.pdb
+D:\Demo\PaceHack\ServiceLayer\bin\Debug\Entities.dll
+D:\Demo\PaceHack\ServiceLayer\bin\Debug\Entities.pdb
+D:\Demo\PaceHack\ServiceLayer\obj\Debug\ServiceLayer.csprojResolveAssemblyReference.cache
+D:\Demo\PaceHack\ServiceLayer\obj\Debug\ServiceLayer.dll
+D:\Demo\PaceHack\ServiceLayer\obj\Debug\ServiceLayer.pdb

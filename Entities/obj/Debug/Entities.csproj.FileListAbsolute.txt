@@ -8,3 +8,8 @@ D:\PackHack1\PaceHack\Entities\bin\Debug\Entities.pdb
 D:\PackHack1\PaceHack\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
 D:\PackHack1\PaceHack\Entities\obj\Debug\Entities.dll
 D:\PackHack1\PaceHack\Entities\obj\Debug\Entities.pdb
+D:\Demo\PaceHack\Entities\bin\Debug\Entities.dll
+D:\Demo\PaceHack\Entities\bin\Debug\Entities.pdb
+D:\Demo\PaceHack\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+D:\Demo\PaceHack\Entities\obj\Debug\Entities.dll
+D:\Demo\PaceHack\Entities\obj\Debug\Entities.pdb

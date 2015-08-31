@@ -30,7 +30,7 @@ namespace UnitTestProject1
             PaceController objPaceController = new PaceController(proxy);
             DateTime sdate = DateTime.Now;
             DateTime eDate = DateTime.Now;
-            sdate = objPaceController.GetPreviousDate((DayOfWeek)weekday, out eDate);
+            sdate = objPaceController.GetPreviousDate((DayOfWeek)weekday,DateTime.Now, out eDate);
         }
 
         [TestCase(0)]
@@ -45,7 +45,7 @@ namespace UnitTestProject1
             PaceController objPaceController = new PaceController(proxy);
             DateTime sdate = DateTime.Now;
             DateTime eDate = DateTime.Now;
-            sdate = objPaceController.GetUpcomingDate((DayOfWeek)weekday, out eDate);
+            sdate = objPaceController.GetUpcomingDate((DayOfWeek)weekday, DateTime.Now, out eDate);
         }
 
         [Test]
@@ -55,7 +55,7 @@ namespace UnitTestProject1
             DateTime sdate = DateTime.Now;
             DateTime eDate = DateTime.Now;
             PaceModel objPaceModel = objPaceController.CalculatePace();
-            eDate = objPaceController.GetWeekStartEnd(out sdate);
+            eDate = objPaceController.GetWeekStartEnd(DateTime.Now,out sdate);
         }
     }
 }
